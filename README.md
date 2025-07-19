@@ -1,3 +1,5 @@
+[Live Frontend (Vercel)](https://test-project-qtne83ar4-alazar-negas-projects.vercel.app)
+
 # 🎵 Music Library App
 
 A modern full-stack application to manage your favorite songs, built with **React**, **Redux Toolkit**, **Redux-Saga**, **Emotion** (for theming), and a custom **Node/Express** backend.
