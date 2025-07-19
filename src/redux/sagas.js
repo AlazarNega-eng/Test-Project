@@ -14,19 +14,24 @@ import {
   deleteSongFailure,
 } from "./songsSlice";
 
-const API_URL =
-  process.env.API_BASE_URL || "https://jsonplaceholder.typicode.com/posts";
+const API_URL = "http://localhost:4000/songs";
 
 function* fetchSongsSaga(action) {
   try {
     const page = action.payload?.page || 1;
     const limit = 10;
-    const response = yield call(fetch, `${API_URL}`);
+    const response = yield call(
+      fetch,
+      `${API_URL}?page=${page}&limit=${limit}`
+    );
     const data = yield response.json();
-    const total = data.length;
-    const totalPages = Math.ceil(total / limit);
-    const paginated = data.slice((page - 1) * limit, page * limit);
-    yield put(fetchSongsSuccess({ list: paginated, page, totalPages }));
+    yield put(
+      fetchSongsSuccess({
+        list: data.list,
+        page: data.page,
+        totalPages: data.totalPages,
+      })
+    );
   } catch (error) {
     yield put(fetchSongsFailure(error.message || "Failed to fetch songs"));
   }
