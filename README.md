@@ -18,6 +18,16 @@ A modern full-stack application to manage your favorite songs, built with **Reac
 
 ## ⚙️ Setup Instructions
 
+### 0️⃣ Environment Variables (.env)
+
+Create a file named `.env` in the project root and add:
+
+```env
+API_BASE_URL=http://localhost:4000
+```
+
+This allows the frontend to connect to the backend using the environment variable, and is required for local development.
+
 ### 1️⃣ Backend
 
 ```bash
