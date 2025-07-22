@@ -14,9 +14,8 @@ import {
   deleteSongFailure,
 } from "./songsSlice";
 
-// Use environment variable for API base URL
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-const API_URL = `${API_BASE_URL}/songs`;
+// Use relative path for API URL to work with devServer proxy
+const API_URL = "/songs";
 
 function* fetchSongsSaga(action) {
   try {
