@@ -63,6 +63,13 @@ module.exports = {
     historyApiFallback: true,
     port: 3001,
     open: true,
+    proxy: [
+      {
+        context: ["/songs"],
+        target: "http://localhost:4000",
+        changeOrigin: true,
+      },
+    ],
   },
   mode: "development",
 };
